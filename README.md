@@ -77,6 +77,10 @@ int *thisPtr;
 ```
 
 ```C
+int thisVar, *thisPtr;
+```
+
+```C
 const int THIS_VAR = 0;
 ```
 
@@ -139,12 +143,6 @@ for (i = 0; i < 10; ++i) {
 ## Indentation and Spacing ##
 * As described above, prioritize K&R indentation over other styles.
 * Four spaces. If there are tab characters, convert them to spaces first. Not all text editors format tabs equally.
-* Always add a space between operators such as assignments, additions, and so on.
-
-Good: ``z = x + y;``
-
-Bad: ``z=x+y;`` ``z= x+y ;`` ``z = x+y;`` ``z= x + y;`` `z =  x + y;`
-
 * Case statements requires to be indented on the same line as switch statements.
 ```C
 switch (this) {
@@ -157,11 +155,36 @@ case 1:
 }
 ```
 
+* Always add a space between operators such as assignments, additions, and so on.
+### Good ###
+``z = x + y;``
+
+### Bad ###
+``z=x+y;`` ``z= x+y ;`` ``z = x+y;`` ``z= x + y;`` `z =  x + y;`
+
 ## Line Length ##
 * There is no restriction on how long a single line of code can be. However, if it runs off to the right side of your IDE, consider wrapping it to the next line. I recommend 80 to 120 characters per line.
 
 ## Comments ##
 * Provide detailed documentation at the top of the header file explaining what it does using multi-line comments.
-* The function prototypes should have their own single-line comment, and the spacing of the prototypes and the comment should be consistent throughout the file.
-* Write comments within functions as much as possible for non-trivial things, but don't over-comment if it is fairly obvious to other programmers.
+```C
+/*
+    Document this header.
+    
+    Paragraph 1; Sentence 1.
+    Paragraph 1; Sentence 2.
+    
+    Paragraph 2; Sentence 1.
+    Paragraph 2; Sentence 2.
+*/
+```
+
+* The function prototypes should have their own single-line comment, and the spacing of the prototypes and the comment should be consistent throughout the file. Adjust the spacing as you see fit.
+```C
+void f(void);       // Brief description of f()
+void g(void);       // " " " g()
+void h(void);       // " " " h()
+```
+
+* Write comments within functions for non-trivial things, but don't over-comment if it is fairly obvious to others.
 * Use correct English spelling and grammar. There are online tools that can help you with this.
