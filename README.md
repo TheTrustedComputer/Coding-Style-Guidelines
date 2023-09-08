@@ -5,29 +5,35 @@ I use a mixture of PascalCase, camelCase, and snake_case. It is important to kno
 ## Naming Conventions ##
 * Structs, classes, unions, enums, and other similar constructs: PascalCase. Alias them with typedef when reusing them. They can be left without a name when they are nested. If that is the case, they are treated like variables.
 ```C
-struct ThisStruct {
-    struct {
+struct ThisStruct
+{
+    struct
+    {
         // ...
     } nestedStruct;
 };
 ```
 
 ```C
-typedef struct ThisStruct {
-    struct {
+typedef struct ThisStruct
+{
+    struct
+    {
         // ...
     } nestedStruct;
 } ThisStruct;
 ```
 
 ```C
-enum ThisEnum {
+enum ThisEnum
+{
     // ...
 };
 ```
 
 ```C
-union {
+union
+{
     // ...
 };
 ```
@@ -39,27 +45,31 @@ typedef struct ThisStruct ThisStruct;
 
 * Functions: camelCase. If it involves structures, insert an underscore between the struct name to be modified and the function name. Parameters are prefixed with an underscore. If the function has no parameters, explicitly use the "void" keyword, including main.
 ```C
-int thisFunc(void) {
+int thisFunc(void)
+{
     return 1 + 2;
 }
 ```
 
 ```C
 // C
-int ThisStruct_thisFunc(ThisStruct *_struct, int _param, const int _PARAM) {
+int ThisStruct_thisFunc(ThisStruct *_struct, int _param, const int _PARAM)
+{
     return _struct->a + _struct->b + (_param * _PARAM);
 }
 ```
 
 ```C++
 // C++
-int ThisStruct::thisFunc(int _param, const int _PARAM) {
+int ThisStruct::thisFunc(int _param, const int _PARAM)
+{
     return this->a + this->b + (_param * _PARAM);
 }
 ```
 
 ```C
-int main(void) {
+int main(void)
+{
     // ..
     return 0;
 }
@@ -100,52 +110,61 @@ static const int THIS_VAR = 0;
 
 
 ## Brackets ##
-* Use K&R (Kernighan & Ritchie) style for bracket placement. The following points explain this placement.
-* Opening brackets at the end of a function or expression must be on the same line, followed by a whitespace and this bracket.
+* Use Allman style for bracket placement. The following points explain this placement.
+* Opening brackets at the end of a function or expression must be on a new line.
+* Closing brackets also need to be on a new line by themselves.
+
 ```C
-(expression) {
+(expression)
+{
 
 }
 ```
 
-* Closing brackets needs to be on a new line by themselves.  When writing control flow statements, like "else" or "else if" in if statements, these brackets should be on a separate line.
 ```C
-if (this) {
+if (this)
+{
     // ...
 }
-else if (that) {
+else if (that)
+{
     // ...
 }
-else {
+else
+{
     // ...
 }
 ```
 
 ```C
-while (this) {
+while (this)
+{
     // ...
 }
 ```
 
 ```C
-do {
+do
+{
     // ...
 }
 while (this);
 ```
 
 ```C
-for (i = 0; i < 10; ++i) {
+for (i = 0; i < 10; i++)
+{
     // ...
 }
 ```
 
 ## Indentation and Spacing ##
-* As described above, prioritize K&R indentation over other styles.
+* As described above, prioritize Allman indentation over other styles.
 * Four spaces. If there are tab characters, convert them to spaces first. Not all text editors format tabs equally.
 * Case statements requires to be indented on the same line as switch statements.
 ```C
-switch (this) {
+switch (this)
+{
 case 0:
     // ...
     break;
